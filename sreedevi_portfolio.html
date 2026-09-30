@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patil Sreedevi | Portfolio</title>
+<meta name="description" content="Computer Science undergraduate seeking a software development internship. Python, Java, C and FastAPI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f4fc; --panel:#ffffff; --ink:#2a1740; --muted:#65577a; --line:#e2d8ef;
+  --accent:#0c8f7e; --accent-soft:#d9f3ee; --plum:#2a1740; --plum-ink:#f3ecfb;
+  --display:'Sora','Segoe UI',system-ui,sans-serif;
+  --body:'DM Sans','Segoe UI',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#150d22; --panel:#21152f; --ink:#f0e8fa; --muted:#a898bf; --line:#382a4d;
+    --accent:#4fd1bd; --accent-soft:#17362f; --plum:#0d0716; --plum-ink:#f0e8fa;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#150d22; --panel:#21152f; --ink:#f0e8fa; --muted:#a898bf; --line:#382a4d;
+  --accent:#4fd1bd; --accent-soft:#17362f; --plum:#0d0716; --plum-ink:#f0e8fa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.65;font-size:1.02rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.1rem}
+.bar nav{display:flex;gap:22px;flex-wrap:wrap}
+.bar nav a{text-decoration:none;color:var(--muted);font-size:.95rem;font-weight:500}
+.bar nav a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:5px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+
+.hero{padding:72px 0 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--display);font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1;font-weight:800;letter-spacing:-.03em}
+.hero p.sub{font-size:1.2rem;color:var(--muted);margin-top:22px;max-width:44ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;background:var(--accent);color:#fff}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:hover{filter:brightness(1.08)}
+
+.code{background:var(--plum);color:var(--plum-ink);border-radius:16px;overflow:hidden;font-family:var(--mono);font-size:.82rem;box-shadow:0 20px 50px -20px #2a174088}
+.code .head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #ffffff1a;color:#b9a9d1}
+.code .dot{width:10px;height:10px;border-radius:50%;background:#ffffff33}
+.code pre{padding:18px 20px;line-height:1.75;overflow-x:auto}
+.k{color:#ff9ac1}.f{color:#7be0cf}.s{color:#ffd28a}.c{color:#8f7fa8}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--display);font-size:1.7rem;font-weight:700;letter-spacing:-.01em;margin-bottom:24px}
+.split{display:grid;grid-template-columns:220px 1fr;gap:32px}
+.split > h2{margin-bottom:0}
+.lead{font-size:1.15rem;max-width:62ch}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.skill{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.skill h3{font-family:var(--display);font-size:1rem;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--accent-soft);padding:3px 12px;border-radius:99px;font-size:.88rem}
+
+.project{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px}
+.project h3{font-family:var(--display);font-size:1.35rem}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+.tags span{font-family:var(--mono);font-size:.78rem;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:1px 8px}
+ul.tick{list-style:none}
+ul.tick li{position:relative;padding-left:22px;margin-bottom:8px}
+ul.tick li::before{content:"";position:absolute;left:2px;top:.65em;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+.project .btn{display:inline-block;margin-top:14px}
+
+.entry{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid var(--line)}
+.entry:first-child{padding-top:0}
+.entry:last-child{border-bottom:0;padding-bottom:0}
+.entry b{font-weight:600}
+.entry small{display:block;color:var(--muted);font-size:.92rem}
+.when{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-align:right}
+.when strong{display:block;color:var(--accent);font-family:var(--display);font-size:1.15rem}
+
+.contact{background:var(--plum);color:var(--plum-ink);border-radius:22px;padding:40px}
+.contact h2{margin-bottom:8px}
+.contact p{color:#b9a9d1;margin-bottom:22px;max-width:52ch}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px}
+.contact a.pill{padding:10px 20px;border-radius:99px;border:1px solid #ffffff44;text-decoration:none}
+.contact a.pill:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+footer{color:var(--muted);font-size:.85rem;padding:32px 0 48px;text-align:center}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:44px}
+  .split{grid-template-columns:1fr;gap:16px}
+  .bar nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Sreedevi</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Project</a>
+      <a href="#experience">Internship</a>
+      <a href="#education">Education</a>
+      <a href="#more">Activities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme" type="button" aria-label="Toggle light and dark theme">Switch theme</button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <h1>Patil Sreedevi</h1>
+      <p class="sub">Computer Science student learning to build reliable software. Looking for an internship in software development.</p>
+      <div class="btns">
+        <a class="btn" href="#projects">View my project</a>
+        <a class="btn alt" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="code" aria-hidden="true">
+      <div class="head"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:8px">main.py</span></div>
+<pre><span class="k">from</span> fastapi <span class="k">import</span> FastAPI
+
+app = FastAPI()
+
+<span class="f">@app.get</span>(<span class="s">"/about"</span>)
+<span class="k">def</span> <span class="f">about</span>():
+    <span class="k">return</span> {
+        <span class="s">"name"</span>: <span class="s">"Patil Sreedevi"</span>,
+        <span class="s">"degree"</span>: <span class="s">"B.Tech CSE, 2027"</span>,
+        <span class="s">"looking_for"</span>: <span class="s">"internship"</span>,
+    }</pre>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="split">
+      <h2>About me</h2>
+      <p class="lead">I'm a motivated Computer Science undergraduate who wants to apply and grow my software development knowledge. I enjoy working in a team, learning new technologies and improving as a developer.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="split">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>Programming</h3><div class="chips"><span>C</span><span>Python</span><span>Java</span><span>HTML</span><span>CSS</span></div></div>
+        <div class="skill"><h3>Fundamentals</h3><div class="chips"><span>OOP Concepts</span><span>DBMS</span><span>Operating Systems</span></div></div>
+        <div class="skill"><h3>Tools</h3><div class="chips"><span>VS Code</span><span>MS Office</span></div></div>
+        <div class="skill"><h3>Soft skills</h3><div class="chips"><span>Communication</span><span>Teamwork</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="split">
+      <h2>Project</h2>
+      <article class="project">
+        <h3>FastAPI Final Project</h3>
+        <div class="tags"><span>Python</span><span>FastAPI</span><span>REST API</span><span>Database</span></div>
+        <ul class="tick">
+          <li>Built a backend web application with FastAPI, implementing RESTful APIs for the core functionality.</li>
+          <li>Designed and integrated database models with CRUD operations for efficient data handling.</li>
+          <li>Added request validation, error handling and a structured project architecture that follows best practices.</li>
+        </ul>
+        <a class="btn" href="https://github.com/SREEDEVI-161/FASTAPI-FINALPROJECT" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="split">
+      <h2>Internship</h2>
+      <div>
+        <div class="entry">
+          <div><b>Machine Learning Intern</b><small>SkillDzire</small></div>
+        </div>
+        <ul class="tick" style="margin-top:14px">
+          <li>Completed an internship focused on machine learning fundamentals and applications.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="split">
+      <h2>Education</h2>
+      <div>
+        <div class="entry"><div><b>B.Tech, Computer Science &amp; Engineering</b><small>St. John's College of Engineering &amp; Technology</small></div><div class="when">2023 to 2027</div></div>
+        <div class="entry"><div><b>Intermediate (MPC)</b><small>Narayana Junior College, Yemmiganur &middot; 2021 to 2023</small></div><div class="when"><strong>80%</strong></div></div>
+        <div class="entry"><div><b>S.S.C</b><small>Andhra Pradesh Model School, Gonegandla &middot; 2020 to 2021</small></div><div class="when"><strong>9.87</strong>GPA</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more">
+    <div class="split">
+      <h2>Workshops &amp; achievements</h2>
+      <div style="display:grid;gap:24px">
+        <div>
+          <h3 style="font-family:var(--display);margin-bottom:10px">Workshops and training</h3>
+          <ul class="tick">
+            <li>ISRO online training program: an overview of Global Navigation Satellite Systems (GNSS).</li>
+            <li>Python and Drone workshop.</li>
+            <li>Workshop at Ki Tech.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:var(--display);margin-bottom:10px">Achievements</h3>
+          <ul class="tick">
+            <li>Participated in the Amaravathi Quantum Valley Hackathon.</li>
+            <li>Participated in a webinar on Gemini AI.</li>
+            <li>Maintained good academic performance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Let's connect</h2>
+      <p>I'm looking for a software development internship where I can contribute, learn and grow. Send me a message.</p>
+      <div class="row">
+        <a class="pill" href="mailto:sridevireddy161@gmail.com">Email me</a>
+        <a class="pill" href="tel:+918328486161">Call +91 83284 86161</a>
+        <a class="pill" href="https://www.linkedin.com/in/devi-sri-6a24a02aa" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="https://github.com/SREEDEVI-161" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>&copy; <span id="yr"></span> Patil Sreedevi</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('theme').addEventListener('click', function(){
+  var root = document.documentElement;
+  var dark = root.dataset.theme ? root.dataset.theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+});
+</script>
+</body>
+</html>
